@@ -14,7 +14,7 @@ class Blog extends Component {
     }
 
     componentDidMount () {
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        axios.get('/posts')
             .then(response => {
                  // as this backend is not very flexible, I'm taking all the posts but not storing all
                  // also adding a hard-coded author name after me for all of them

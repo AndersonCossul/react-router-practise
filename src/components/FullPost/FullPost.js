@@ -12,7 +12,7 @@ class FullPost extends Component {
             // to prevent infinite requests, we'll just make the request if we don't have any post, or if we do, 
             // the one we have doesn't have the same id as the one that's being passed
             if (!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)) {
-                axios.get('https://jsonplaceholder.typicode.com/posts/' + this.props.id)
+                axios.get('/posts/' + this.props.id)
                     .then(response => {
                         this.setState({loadedPost: response.data})
                     })
@@ -24,7 +24,7 @@ class FullPost extends Component {
     }
 
     deletePostHandler = () => {
-        axios.delete('https://jsonplaceholder.typicode.com/posts/' + this.props.id)
+        axios.delete('/posts/' + this.props.id)
             .then(response => {
                 console.log(response)
                 alert('Successfully deleted the post.')
