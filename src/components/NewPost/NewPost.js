@@ -19,9 +19,10 @@ class NewPost extends Component {
         axios.post('https://jsonplaceholder.typicode.com/posts', data)
             .then(response => {
                 console.log(response)
+                alert('Successfully created new post.')
             })
             .catch(error => {
-                console.err(error)
+                alert('Failed to create new post.\n' + error)
             })
     }
 

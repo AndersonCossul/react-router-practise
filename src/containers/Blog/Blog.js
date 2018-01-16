@@ -27,7 +27,7 @@ class Blog extends Component {
                 this.setState({posts: updatedPosts})
             })
             .catch(error => {
-                alert('Failed to get posts!\n' + error)
+                alert('Failed to get posts.\n' + error)
             })
     }
 
