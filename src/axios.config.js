@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const configAxios = () => {
 	axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com'
+	axios.defaults.headers.common['authorization'] = 'AUTH TOKEN'
 
 	axios.interceptors.request.use(request => {
 		return request
