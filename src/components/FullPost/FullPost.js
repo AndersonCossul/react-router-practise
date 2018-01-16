@@ -9,6 +9,8 @@ class FullPost extends Component {
 
     componentDidUpdate () {
         if (this.props.id) {
+            // to prevent infinite requests, we'll just make the request if we don't have any post, or if we do, 
+            // the one we have doesn't have the same id as the one that's being passed
             if (!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)) {
                 axios.get('https://jsonplaceholder.typicode.com/posts/' + this.props.id)
                     .then(response => {
