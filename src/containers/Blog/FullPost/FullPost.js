@@ -7,11 +7,11 @@ class FullPost extends Component {
     loadedPost: null
   }
 
-  componentDidMount () {
+  getPosts () {
     if (this.props.match.params.id) {
       // to prevent infinite requests, we'll just make the request if we don't have any post, or if we do,
       // the one we have doesn't have the same id as the one that's being passed
-      if (!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.match.params.id)) {
+      if (!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== +this.props.match.params.id)) {
         axios.get('/posts/' + this.props.match.params.id)
         .then(response => {
           this.setState({loadedPost: response.data})
@@ -21,6 +21,14 @@ class FullPost extends Component {
         })
       }
     }
+  }
+
+  componentDidMount () {
+    this.getPosts()
+  }
+
+  componentDidUpdate () {
+    this.getPosts()
   }
 
   deletePostHandler = () => {

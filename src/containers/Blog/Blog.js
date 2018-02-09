@@ -11,9 +11,9 @@ class Blog extends Component {
         <header>
           <nav>
             <ul>
-              <li><NavLink to="/posts" exact>Posts</NavLink></li>
+              <li><NavLink to="/posts">Posts</NavLink></li>
               <li><NavLink to={{
-                  pathname: '/posts/create',
+                  pathname: '/post/create',
                   hash: '#submit',
                   search: '?quick-submit=true'
                 }}>New Post</NavLink></li>
@@ -21,7 +21,7 @@ class Blog extends Component {
           </nav>
         </header>
         <Switch>
-          <Route path="/posts/create" exact component={NewPost}/>
+          <Route path="/post/create" exact component={NewPost}/>
           <Route path="/posts/" component={Posts}/>
         </Switch>
       </div>
