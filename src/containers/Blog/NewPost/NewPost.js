@@ -20,7 +20,9 @@ class NewPost extends Component {
     }
     axios.post('/posts', data)
     .then(response => {
-      this.setState({submited: true})
+      // this.props.history.push('/posts') // this allows user to return to this page on clicking last page on browser
+      // this.setState({submited: true}) // this, combined with the <Redirect down there prevents it, as it replaces the active route
+      this.props.history.replace('/posts') // this also prevents coming back here from the last page button 
     })
     .catch(error => {
       alert('Failed to create new post.\n' + error)
