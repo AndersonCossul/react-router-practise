@@ -6,7 +6,7 @@ import { Route, NavLink, Switch, Redirect } from 'react-router-dom'
 
 class Blog extends Component {
   state = {
-    auth: false
+    auth: true // so we can see the create post page
   }
 
   render () {
@@ -27,8 +27,9 @@ class Blog extends Component {
         <Switch>
           {this.state.auth ? <Route path="/post/create" exact component={NewPost}/> : null}
           <Route path="/posts" component={Posts}/>
-          <Redirect from="/" to="/posts"/>
-        </Switch>
+          // <Redirect from="/" to="/posts"/>
+          <Route render={() => <h1>This is a 404 page. You know what it means.</h1>} />
+      </Switch>
       </div>
     )
   }
