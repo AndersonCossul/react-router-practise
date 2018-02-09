@@ -1,3 +1,4 @@
+## Important Info
 This project was used to learn more and practice some react world features.<br>
 So it's not thought to be production level. Some validations and other behaviours on submitting or receiving data, as buttons going disabled, spinners and etc that you'd expect in a real app were not developed.
 
