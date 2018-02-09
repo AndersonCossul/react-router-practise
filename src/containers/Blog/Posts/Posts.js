@@ -33,18 +33,18 @@ class Posts extends Component {
     }
 
     render () {
-        let posts = <p style={{textAlign: 'center', color: 'red', fontWeight: 'bold'}}>Something went wrong!</p>
+        let posts = this.state.posts.map(post => {
+                        return (
+                            <Post
+                                key={post.id}
+                                title={post.title}
+                                author={post.author}
+                                clicked={() => this.postSelectedHandler(post.id)}/>
+                        )
+                    })
 
-        if (!this.state.error) {
-            posts = this.state.posts.map(post => {
-                return (
-                    <Post
-                        key={post.id}
-                        title={post.title}
-                        author={post.author}
-                        clicked={() => this.postSelectedHandler(post.id)}/>
-                )
-            })
+        if (this.state.error) {
+            posts = <p style={{textAlign: 'center', color: 'red', fontWeight: 'bold'}}>Something went wrong!</p>
         }
 
         return (

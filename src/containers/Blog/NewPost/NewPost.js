@@ -6,11 +6,11 @@ class NewPost extends Component {
     state = {
         title: '',
         content: '',
-        author: 'Anderson'
+        author: 'Anderson C'
     }
 
     postDataHandler = () => {
-        // could have passed directly in axios call but this is leaner
+        // could have passed directly in axios call but this is cleaner
         const data = {
             title: this.state.title,
             body: this.state.content,
@@ -36,7 +36,7 @@ class NewPost extends Component {
                 <textarea rows="4" value={this.state.content} onChange={(event) => this.setState({content: event.target.value})} />
                 <label>Author</label>
                 <select value={this.state.author} onChange={(event) => this.setState({author: event.target.value})}>
-                    <option value="Anderson">Anderson</option>
+                    <option value="Anderson C">Anderson C</option>
                     <option value="Max">Max</option>
                 </select>
                 <button onClick={this.postDataHandler}>Add Post</button>
