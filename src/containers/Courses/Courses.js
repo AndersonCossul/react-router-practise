@@ -15,18 +15,20 @@ class Courses extends Component {
     return (
       <div>
         <h1>Amazing Udemy Courses</h1>
-        <Link to="/courses/1">
-          <section className="Courses">
-            {
-              this.state.courses.map( course => {
-                return <article className="Course" key={course.id}>{course.title}</article>;
-                } )
-              }
-            </section>
-          </Link>
-        </div>
-      );
-    }
+        <section className="Courses">
+          {
+            this.state.courses.map( course => {
+              return (
+                <Link to={this.props.match.url + '/' + course.id} key={course.id}>
+                  <article className="Course">{course.title}</article>
+                </Link>
+              )
+            } )
+          }
+        </section>
+      </div>
+    );
   }
+}
 
-  export default Courses;
+export default Courses;
