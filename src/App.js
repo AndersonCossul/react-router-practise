@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, NavLink } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom'
 import './App.css'
 import Tasks from './components/Tasks'
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
+import c404 from './components/c404'
 
 class App extends Component {
   render () {
@@ -21,10 +22,13 @@ class App extends Component {
 
           <hr/>
 
-          <Route path="/tasks" component={Tasks}/>
-          <Route path="/users" component={Users}/>
-          <Route path="/courses" component={Courses}/>
-        </div>
+          <Switch>
+            <Route path="/tasks" component={Tasks}/>
+            <Route path="/users" component={Users}/>
+            <Route path="/courses" component={Courses}/>
+            <Route component={c404}/>
+          </Switch>
+      </div>
       </BrowserRouter>
     );
   }
